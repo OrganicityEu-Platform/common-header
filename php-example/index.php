@@ -49,17 +49,17 @@ if(isset($_GET['code'])) {
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Organicity Navigation 2.0</title>
 		<link href="<?=$prefix;?>bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
-		<link href="<?=$prefix;?>navbar.css" rel="stylesheet">
-		<link href="<?=$prefix;?>oc.css" rel="stylesheet">
-		<link href="<?=$prefix;?>yamm3/yamm.css" rel="stylesheet">
+		<link href="<?=$prefix;?>css/navbar.css" rel="stylesheet">
+		<link href="<?=$prefix;?>css/oc.css" rel="stylesheet">
+		<link href="<?=$prefix;?>css/yamm3/yamm.css" rel="stylesheet">
 	</head>
 	<body>
 	  <div id="oc-nav"></div>
 
-		<script src="<?=$prefix;?>jquery-3.2.0.min.js"></script>
-		<script src="<?=$prefix;?>common-navigation.js"></script>
-		<script src="<?=$prefix;?>jwt-decode.min.js"></script>
-    	<script src="<?=$prefix;?>bootstrap-3.3.7/js/bootstrap.min.js"></script>
+		<script src="<?=$prefix;?>js/jquery-3.2.0.min.js"></script>
+		<script src="<?=$prefix;?>js/common-navigation.js"></script>
+		<script src="<?=$prefix;?>js/jwt-decode.min.js"></script>
+    	<script src="<?=$prefix;?>js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 		<script>
 		$( document ).ready(function() {
