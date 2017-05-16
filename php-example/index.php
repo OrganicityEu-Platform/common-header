@@ -59,7 +59,7 @@ if(isset($_GET['code'])) {
 		<script src="<?=$prefix;?>js/jquery-3.2.0.min.js"></script>
 		<script src="<?=$prefix;?>js/common-navigation.js"></script>
 		<script src="<?=$prefix;?>js/jwt-decode.min.js"></script>
-    	<script src="<?=$prefix;?>js/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    	<script src="<?=$prefix;?>bootstrap-3.3.7/js/bootstrap.min.js"></script>
 
 		<script>
 		$( document ).ready(function() {

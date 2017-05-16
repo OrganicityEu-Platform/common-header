@@ -1,0 +1,17 @@
+.list-unstyled,
+.list-unstyled ul { min-width: 240px }
+
+.navbar .title {
+	color: #ef4070;
+	font-weight: bold;
+}
+
+.navbar .subtitle{
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.navbar .comment{
+	color: gray;
+	padding-left:10px;
+}
