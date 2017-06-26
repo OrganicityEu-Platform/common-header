@@ -1,6 +1,6 @@
 (function ( $ ) {
 
-    $.fn.organicityNavigation = function(login_uri, signout_uri, token) {
+    $.fn.organicityNavigation = function( login_uri, signout_uri, token) {
 		var roles = [];
 		if(token && token.length > 0) {
 			var jwt = jwt_decode(token);
@@ -14,7 +14,7 @@
 		var isAdmin = roles.includes('administrator');
 		//console.log('found', found);
 
-		var ul = $('<ul class="nav navbar-nav navbar-right" style="margin-right: 0!important;"></ul>');
+		var ul = $('<ul class="nav navbar-nav navbar-left" style="margin-right: 0!important;"></ul>');
 
 		var li2 = $('<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Tools<b class="caret"></b></a></li>');
 		var ul2 = $('<ul class="dropdown-menu"></ul>');
@@ -68,25 +68,31 @@
 		ul.append('<li><a href="#">Documents</a></li>');
 		ul.append('<li><a href="#">Support</a></li>');
 
-		if(username) {
-			var profile = $('<li class="dropdown circle"><a style="padding:0" href="#" data-toggle="dropdown" class="dropdown-toggle"><div class="userCircle">' + given_name[0] + family_name[0] + '</div></a></li>');
-			var ul_profile = $('<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>');
-			ul_profile.append($('<li class="dropdown-header">' + given_name + ' ' + family_name + '</li>'));
-			//ul_profile.append($('<li><a href="#">Profile</a></li>'));
-			ul_profile.append($('<li><a href="https://accounts.organicity.eu/my">Account</a></li>'));
-			ul_profile.append($('<li>&nbsp;</li>'));
-			ul_profile.append($('<li><a href="' + signout_uri + '">Sign out</a></li>'));
-			profile.append(ul_profile);
-			ul.append(profile);
-		} else {
-			var sign_in = $('<li><a href="#">Sign in</a></li>');
-			sign_in.click(function() {
-				window.location = login_uri;
-			});
-			ul.append(sign_in);
-		}
+        var ul_login = $('<ul class="nav navbar-nav navbar-right" style="margin-right: 20px!important;"></ul>');
 
-        this.html(ul);
+        if(username) {
+            var profile = $('<li class="dropdown circle"><a style="padding:0" href="#" data-toggle="dropdown" class="dropdown-toggle"><div class="userCircle">' + given_name[0] + family_name[0] + '</div></a></li>');
+            var ul_profile = $('<ul class="dropdown-menu" aria-labelledby="dropdownMenu1"></ul>');
+            ul_profile.append($('<li class="dropdown-header">' + given_name + ' ' + family_name + '</li>'));
+            //ul_profile.append($('<li><a href="#">Profile</a></li>'));
+            ul_profile.append($('<li><a href="https://accounts.organicity.eu/my">Account</a></li>'));
+            ul_profile.append($('<li>&nbsp;</li>'));
+            ul_profile.append($('<li><a href="' + signout_uri + '">Sign out</a></li>'));
+            profile.append(ul_profile);
+            ul_login.append(profile);
+        } else {
+            var sign_in = $('<li><a href="#">Sign in</a></li>');
+            sign_in.click(function() {
+                window.location = login_uri;
+            });
+            ul_login.append(sign_in);
+        }
+
+        var master_div = $('<div></div>');
+        master_div.append(ul);
+        master_div.append(ul_login);
+        this.html(master_div);
         return this;
     };
+
 }( jQuery ));
