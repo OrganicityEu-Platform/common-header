@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Organicity Navigation 2.0</title>
+		<link href="../bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/navbar.css" rel="stylesheet">
+		<link href="../css/oc.css" rel="stylesheet">
+		<link href="../yamm3/yamm.css" rel="stylesheet">
+	</head>
+	<body>
+        <nav class="navbar navbar-default navbar-static-top yamm" style="margin-bottom: 0" >
+            <div class="navbar-header" id="navbar-header"><a class="navbar-brand" href="/"><img src="../oc_logo.png" class="logo"></a></div>
+            <div class="navbar-collapse collapse" id="oc-nav"></div>
+        </nav>
+	<div id="oc-nav"></div>
+
+		<script src="../js/jquery-3.2.0.min.js"></script>
+		<script src="../js/common-navigation.js"></script>
+		<script src="../js/jwt-decode.min.js"></script>
+    	<script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+
+		<script>
+		$( document ).ready(function() {
+			var token = '';
+			$("#oc-nav").organicityNavigation('/login', '/logout', token);
+		});
+		</script>
+	</body>
+</html>
