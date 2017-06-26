@@ -1,26 +1,20 @@
 (function ( $ ) {
 
-    $.fn.organicityNavigation = function(client_id, redirect_uri, signout_uri, token) {
+    $.fn.organicityNavigation = function(login_uri, signout_uri, token) {
 		var roles = [];
 		if(token && token.length > 0) {
 			var jwt = jwt_decode(token);
-			console.log(jwt);
 			var family_name = jwt.family_name;
 			var given_name = jwt.given_name;
 			var username = jwt.preferred_username;
-			//var roles = jwt.realm_access.roles;
+			var roles = jwt.realm_access.roles;
 		}
 
-    //Check for admin
-		//var found = roles.includes('administrator');
+        //Check for admin
+		var isAdmin = roles.includes('administrator');
 		//console.log('found', found);
 
-		var nav = $('<nav class="navbar navbar-default yamm"></nav>');
-		var container_fluid = $('<div class="container-fluid"></div>');
-		var navbar_header = $('<div class="navbar-header"><a class="navbar-brand" href="#"><img src="https://dev.server.organicity.eu/nav/oc_logo.png" class="logo"></a></div>');
-		var navbar = $('<div id="navbar" class="navbar-collapse collapse"></div>');
-
-		var ul = $('<ul class="nav navbar-nav navbar-right"></ul>');
+		var ul = $('<ul class="nav navbar-nav navbar-right" style="margin-right: 0!important;"></ul>');
 
 		var li2 = $('<li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Tools<b class="caret"></b></a></li>');
 		var ul2 = $('<ul class="dropdown-menu"></ul>');
@@ -87,17 +81,12 @@
 		} else {
 			var sign_in = $('<li><a href="#">Sign in</a></li>');
 			sign_in.click(function() {
-				window.location = 'https://accounts.organicity.eu/realms/organicity/protocol/openid-connect/auth?client_id=' + client_id + '&response_type=code&redirect_uri=' + redirect_uri;
+				window.location = login_uri;
 			});
 			ul.append(sign_in);
 		}
 
-		nav.append(container_fluid);
-		container_fluid.append(navbar_header, navbar);
-		navbar.append(ul);
-
-        this.html(nav);
+        this.html(ul);
         return this;
     };
- 
 }( jQuery ));

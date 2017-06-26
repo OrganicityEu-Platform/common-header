@@ -54,7 +54,11 @@ if(isset($_GET['code'])) {
 		<link href="<?=$prefix;?>css/yamm3/yamm.css" rel="stylesheet">
 	</head>
 	<body>
-	  <div id="oc-nav"></div>
+        <nav class="navbar navbar-default navbar-static-top yamm" style="margin-bottom: 0" >
+            <div class="navbar-header" id="navbar-header"><a class="navbar-brand" href="/"><img src="/images/oc_logo.png" class="logo"></a></div>
+            <div class="navbar-collapse collapse" id="oc-nav"></div>
+        </nav>
+	<div id="oc-nav"></div>
 
 		<script src="<?=$prefix;?>js/jquery-3.2.0.min.js"></script>
 		<script src="<?=$prefix;?>js/common-navigation.js"></script>
@@ -65,7 +69,7 @@ if(isset($_GET['code'])) {
 		$( document ).ready(function() {
 			var token = '<?=$_SESSION['token']; ?>';
       //var token = '';
-			$("#oc-nav").organicityNavigation('<?=$client_id; ?>', '<?=$redirect_uri; ?>', '<?=$signout_uri; ?>', token);
+			$("#oc-nav").organicityNavigation('<?=$login_uri; ?>', '<?=$signout_uri; ?>', token);
 		});
 		</script>
 	</body>
